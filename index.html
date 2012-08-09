@@ -7,6 +7,12 @@
     <meta name="description" content="Jquery.chaos : A dynamic mess organizer jquery plugin" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/tulios/jquery.chaos/master/dependency/modernizr.transforms3d.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/tulios/jquery.chaos/master/src/jquery.chaos.js"></script>
+    <script type="text/javascript" src="javascripts/main.js"></script>
 
     <title>Jquery.chaos</title>
   </head>
@@ -22,8 +28,12 @@
           <h2 id="project_tagline">A dynamic mess organizer jquery plugin</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/tulios/jquery.chaos/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/tulios/jquery.chaos/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/tulios/jquery.chaos/zipball/master">
+                Download this project as a .zip file
+              </a>
+              <a class="tar_download_link" href="https://github.com/tulios/jquery.chaos/tarball/master">
+                Download this project as a tar.gz file
+              </a>
             </section>
         </header>
     </div>
@@ -32,43 +42,33 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>jQuery Chaos</h1>
+        <p>A dynamic mess organizer jquery plugin</p>
 
-<p>A dynamic mess organizer jquery plugin</p>
+        <h2>Demo</h2>
 
-<h2>Dependencies</h2>
+        <div id="controls">
+          <button id="mess">Default</button>
+          <button id="organize">Organize</button>
+          <button id="organize-reverse">Organize Reverse</button>
+        </div>
 
-<ul>
-<li>
-<a href="http://jquery.com">jQuery</a> 1.7.2</li>
-<li><a href="https://github.com/tulios/jquery.chaos/blob/master/dependency/modernizr.transforms3d.js">Modernizr Transform3d</a></li>
-</ul><h2>Usage</h2>
+        <div id="container">
 
-<div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">"#container"</span><span class="p">).</span><span class="nx">chaos</span><span class="p">();</span>
-</pre></div>
+          <div class="atom small blue" style="left: 10px; top: 30px;">Text 1</div>
+          <div class="atom small red" style="left: 640px; top: 205px;">Text 2</div>
+          <div class="atom medium green" style="left: 10px; top: 230px;">Text 3</div>
+          <div class="atom medium orange" style="left: 400px; top: 50px;">Text 4</div>
+          <div class="atom big purple" style="left: 120px; top: 90px;">Text 5</div>
+          <div class="atom big blue" style="left: 330px; top: 200px;">Text 6</div>
+          <div class="atom retangule-small red" style="left: 120px; top: 20px;">Text 7</div>
+          <div class="atom retangule-small green" style="left: 130px; top: 400px;">Text 8</div>
+          <div class="atom retangule-medium orange" style="left: 720px; top: 260px;">Text 9</div>
+          <div class="atom retangule-medium purple" style="left: 630px; top: 390px;">Text 10</div>
+          <div class="atom huge green" style="left: 620px; top: 60px;">Text 11</div>
+          <div class="atom retangule-huge red" style="left: 280px; top: 390px;">Text 12</div>
 
-<p>Html:</p>
+        </div>
 
-<p>pending</p>
-
-<h2>Options</h2>
-
-<p>pending</p>
-
-<h2>Callbacks</h2>
-
-<p>pending</p>
-
-<h2>Methods</h2>
-
-<p>pending</p>
-
-<h2>Maintainers</h2>
-
-<ul>
-<li><a href="https://github.com/tulios">Túlio Ornelas</a></li>
-</ul><h2>License</h2>
-
-<p>Copyright 2012 Túlio Ornelas. See <a href="https://github.com/tulios/jquery.chaos/blob/master/LICENSE">LICENSE</a> for more details.</p>
       </section>
     </div>
 
@@ -79,8 +79,6 @@
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
 
   </body>
 </html>

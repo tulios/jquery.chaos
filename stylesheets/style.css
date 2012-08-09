@@ -1,0 +1,108 @@
+#controls {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#container {
+  margin: auto;
+  position: relative;
+  width: 960px;
+  min-height: 500px;
+  border: 1px solid #33334C;
+}
+
+.atom {
+  border-radius: 4px;
+  position: absolute;
+  text-align: center;
+  border: 1px solid #33334C;
+}
+
+.atom.small {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  z-index: 4;
+}
+
+.atom.medium {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  z-index: 3;
+}
+
+.atom.big {
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  z-index: 2;
+}
+
+.atom.huge {
+  width: 250px;
+  height: 250px;
+  line-height: 250px;
+  z-index: 1;
+}
+
+.atom.retangule-small {
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  z-index: 4;
+}
+
+.atom.retangule-medium {
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  z-index: 3;
+}
+
+.atom.retangule-huge {
+  width: 250px;
+  height: 100px;
+  line-height: 100px;
+  z-index: 2;
+}
+
+.atom.blue {
+  background-color: #3399FF;
+}
+
+.atom.red {
+  background-color: #FF5C5C;
+}
+
+.atom.green {
+  background-color: #33AD5C;
+}
+
+.atom.orange {
+  background-color: #FF8533;
+}
+
+.atom.purple {
+  background-color: #944D94;
+}
+
+.atom.effect {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  -ms-transition-property: -ms-transform, opacity;
+  transition-property: transform, opacity;
+
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+/* Fallback in case of old browser */
+.atom.organize {
+  position: static !important;
+  float: left !important;
+}
