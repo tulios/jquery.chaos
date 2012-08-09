@@ -5,7 +5,7 @@
 ## Dependencies
 
 * [jQuery](http://jquery.com) 1.7.2
-* [Modernizr Transform3d]()
+* [Modernizr Transform3d](https://github.com/tulios/jquery.chaos/blob/master/dependency/modernizr.transforms3d.js)
 
 ## Usage
 
@@ -35,4 +35,4 @@ pending
 
 ## License
 
-Copyright 2012 Túlio Ornelas. See LICENSE for more details.
+Copyright 2012 Túlio Ornelas. See [LICENSE](https://github.com/tulios/jquery.chaos/blob/master/LICENSE) for more details.
