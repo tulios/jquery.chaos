@@ -141,7 +141,7 @@
       this._resetY();
     },
 
-    // Based on http://masonry.desandro.com/jquery.masonry.js layout logic
+    // Borrowed and adapted from http://masonry.desandro.com/jquery.masonry.js layout logic
     _placeElement: function(element) {
       var colSpan, groupCount, groupY, groupColY;
 
