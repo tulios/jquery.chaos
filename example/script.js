@@ -13,7 +13,7 @@ $(function() {
 
   $("#organize-reverse").click(function(e) {
     e.preventDefault();
-    $("#container").chaos().organize("reverse");
+    $("#container").chaos().organize({order: "reverse"});
   });
 });
 
