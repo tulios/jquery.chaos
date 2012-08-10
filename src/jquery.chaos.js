@@ -73,7 +73,7 @@
       var elementsUniverse = this._getElements();
       elementsUniverse.addClass(this.opts.effectClass);
 
-      var elements = params.selector ? $(params.selector) : elementsUniverse;
+      var elements = params.selector ? $(params.selector, this.container) : elementsUniverse;
       if (elements.length == 0) {
         return;
       }
@@ -96,7 +96,7 @@
       var elementsUniverse = this._getElements();
       elementsUniverse.addClass(this.opts.effectClass);
 
-      var elements = params.selector ? $(params.selector) : elementsUniverse;
+      var elements = params.selector ? $(params.selector, this.container) : elementsUniverse;
 
       if (elements.length == 0) {
         return;
