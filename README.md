@@ -9,11 +9,9 @@ gem install jekyll
 ## Generating pages
 
 ```sh
-jekyll --server --auto
+jekyll --server --auto --base-url '/jquery.chaos'
 ```
 
-## Debugging
+URL
 
-```sh
-jekyll --pygments --safe
-```
+  http://localhost:4000/jquery.chaos/
