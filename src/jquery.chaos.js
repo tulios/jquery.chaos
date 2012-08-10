@@ -70,13 +70,13 @@
 
     original: function(params) {
       var params = $.extend({}, params);
-      var elements = params.selector ? $(params.selector) : this._getElements();
+      var elementsUniverse = this._getElements();
+      elementsUniverse.addClass(this.opts.effectClass);
 
+      var elements = params.selector ? $(params.selector) : elementsUniverse;
       if (elements.length == 0) {
         return;
       }
-
-      elements.addClass(this.opts.effectClass);
 
       this._animate(params, function() {
         for (var i = 0; i < elements.length; i++) {
@@ -91,9 +91,12 @@
     organize: function(params) {
       var style = "organize";
       var params = $.extend({}, params);
-
       var reverse = params.order === "reverse";
-      var elements = params.selector ? $(params.selector) : this._getElements();
+
+      var elementsUniverse = this._getElements();
+      elementsUniverse.addClass(this.opts.effectClass);
+
+      var elements = params.selector ? $(params.selector) : elementsUniverse;
 
       if (elements.length == 0) {
         return;
