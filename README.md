@@ -106,14 +106,10 @@ $("#container").chaos({
   effectClass: "effect",
   padding: 10,
   columnWidth: null,
-  beforeInitialization: function(element) {
-  },
-  beforeElementAnimation: function(element, opts) {
-  },
-  beforeAnimation: function() {
-  },
-  afterAnimation: function() {
-  },
+  beforeInitialization: function(element) {},
+  beforeElementAnimation: function(element, opts) {},
+  beforeAnimation: function() {},
+  afterAnimation: function() {},
   animateFunction: null,
   animateFallbackFunction: null
 });
@@ -121,41 +117,57 @@ $("#container").chaos({
 
 ## Methods
 
-### Getting the instance after the initialization
+### chaos
+         
+Retrieves the current chaos instance of the container.
 
 ```javascript
 $("#container").chaos();
 ```
 
 ### original
-
+         
+Animates the elements to the original position. Accepts a selector to restrict the manipulated elements. Accepts before and after callbacks.
+                     
 ```javascript
 $("#container").chaos().original({
   selector: "",
-  beforeAnimation: function() {
-  },
-  afterAnimation: function() {
-  }
+  beforeAnimation: function() {},
+  afterAnimation: function() {}
 });
 ```
 
-Accepts a selector to restrict the manipulated elements. Accepts before and after callbacks.
-
 ### organize
 
+Animates the elements to fit the space of container and avoids collisions. Organize will invert the elements if **order: "reverse"** is used. Accepts a selector to restrict the manipulated elements. Accepts before and after callbacks.
+
+            
 ```javascript
 $("#container").chaos().organize({
   order: ""
   selector: "",
-  beforeAnimation: function() {
-  },
-  afterAnimation: function() {
-  }
+  beforeAnimation: function() {},
+  afterAnimation: function() {}
 });
 ```
 
-Organize will invert the elements if **order: "reverse"** is used.
-Accepts a selector to restrict the manipulated elements. Accepts before and after callbacks.
+### updateOptions
+
+Updates the options/callbacks configured in initialization.
+
+```javascript
+$("#container").chaos().updateOptions({
+  padding: 15
+});
+```
+
+### setup
+
+Setup new elements.
+
+```javascript
+$("#container").chaos().setup($(".atom.new"));
+```
 
 ## Maintainers
 
