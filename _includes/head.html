@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Jquery.chaos : A dynamic mess organizer plugin" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ root_path }}stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ root_path }}stylesheets/gh-buttons.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ root_path }}stylesheets/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://raw.github.com/tulios/jquery.chaos/master/dependency/modernizr.transforms3d.js"></script>
+    <script src="https://raw.github.com/tulios/jquery.chaos/master/src/jquery.chaos.js"></script>
+    <script type="text/javascript" src="{{ root_path }}javascripts/main.js"></script>
+
+    <title>{% if page.title %}{{ page.title }} - Jquery.chaos {% else %}Jquery.chaos{% endif %}</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tulios/jquery.chaos">View on GitHub</a>
+
+          <h1 id="project_title"><a href="{{ root_path }}">Jquery.chaos</a></h1>
+          <h2 id="project_tagline">A dynamic mess organizer plugin</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/tulios/jquery.chaos/zipball/master">
+                Download this project as a .zip file
+              </a>
+              <a class="tar_download_link" href="https://github.com/tulios/jquery.chaos/tarball/master">
+                Download this project as a tar.gz file
+              </a>
+            </section>
+        </header>
+    </div>

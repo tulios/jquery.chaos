@@ -1,10 +1,67 @@
 ---
 layout: main
+title: Filtering
+category: demos
 ---
 
-{% assign root_path = '' %}
-
 <script type="text/javascript" src="../javascripts/basic.js"></script>
+
+<h2>Filtering</h2>
+
+<p>
+  Common initialization
+</p>
+
+{% highlight js %}
+
+  $("#container").chaos({
+    padding: 5
+  });
+
+{% endhighlight %}
+
+<p>
+  jQuery Chaos organize method can animate a subset off elements, so to achieve filtering we will hide the other elements before the animation
+</p>
+
+<p>
+  CSS class that will hide the elements
+</p>
+
+{% highlight css %}
+
+  .atom.hide {
+    opacity: 0;
+  }
+
+{% endhighlight %}
+
+<p>
+  Code for each filter we want to build
+</p>
+
+{% highlight js %}
+
+  $("#container").chaos().organize({
+    selector: ".blue",
+    beforeAnimation: function() {
+      $(".atom").addClass("hide");
+      $(".blue").removeClass("hide");
+    }
+  });
+
+{% endhighlight %}
+
+<p>
+  Before the basic organize functions we will remove the class 'hide', eliminating the filter
+</p>
+
+{% highlight js %}
+
+  $(".atom").removeClass("hide");
+  $("#container").chaos().original();
+
+{% endhighlight %}
 
 <div id="controls">
 

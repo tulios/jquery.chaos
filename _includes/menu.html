@@ -1,0 +1,9 @@
+<nav class="menu">
+  <a{% if page.title == demo.title %} class="current"{% endif %} href="{{ root_path }}">Home</a>
+  <p>Demos:</p>
+  <ul>
+    {% for demo in site.categories.demos reversed %}
+      <li{% if page.title == demo.title %} class="current"{% endif %}><a href="..{{ demo.url }}">{{ demo.title }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>

@@ -1,5 +1,5 @@
 #controls {
-  width: 960px;
+  width: 940px;
   overflow: hidden;
   margin: 20px auto;
 }
@@ -23,7 +23,7 @@
 #container {
   margin: auto;
   position: relative;
-  width: 960px;
+  width: 940px;
   min-height: 500px;
   border: 1px solid #ADADB7;
 }
@@ -120,10 +120,4 @@
 
 .atom.hide {
   opacity: 0;
-}
-
-/* Fallback in case of old browser */
-.atom.organize {
-  position: static !important;
-  float: left !important;
 }

@@ -169,13 +169,10 @@ pre, code {
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
-
-
-
 }
 
 pre {
-  width: 100%;
+  width: 940px;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,.1);
   overflow: auto;
@@ -272,7 +269,7 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 960px;
+  max-width: 1150px;
   padding: 20px 10px;
   margin: 0 auto;
 }
@@ -368,13 +365,41 @@ Full-Width Styles
 
 #main_content {
   padding-top: 40px;
+  overflow: hidden;
 }
 
 #footer_wrap {
   background: #212121;
 }
 
+#main_content .menu {
+  float: left;
+  width: 190px;
+  font-size: 14px;
+}
 
+#main_content .menu .current {
+  font-weight: bolder;
+}
+
+#main_content .menu p {
+  margin: 10px 0 2px 0;
+}
+
+#main_content .menu li {
+  list-style: none;
+  margin: 0;
+  padding-left: 5px;
+}
+
+#main_content .site-content {
+  float: left;
+  width: 960px;
+}
+
+#project_title a {
+  color: white;
+}
 
 /*******************************************************************************
 Small Device Styles

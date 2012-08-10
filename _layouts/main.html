@@ -1,0 +1,16 @@
+{% assign root_path = '../' %}
+{% include head.html %}
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+  <section id="main_content" class="inner">
+
+    {% include menu.html %}
+    <div class="site-content">
+      {{ content }}
+    </div>
+
+  </section>
+</div>
+
+{% include footer.html %}
