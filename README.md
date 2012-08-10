@@ -12,7 +12,7 @@
 ## Usage
 
 ```javascript
-  $("#container").chaos();
+$("#container").chaos();
 ```
 
 ```html
@@ -49,37 +49,37 @@
 ### How to organize the container?
 
 ```javascript
-  $("#container").chaos().organize();
+$("#container").chaos().organize();
 ```
 
 ### How to invert the order of organization?
 
 ```javascript
-  $("#container").chaos().organize({order: "reverse"});
+$("#container").chaos().organize({order: "reverse"});
 ```
 
 ### How to get back to the original format?
 
 ```javascript
-  $("#container").chaos().original();
+$("#container").chaos().original();
 ```
 
 ### How to filter by css classes?
 
 ```css
-  .atom.hide {
-    opacity: 0;
-  }
+.atom.hide {
+  opacity: 0;
+}
 ```
 
 ```javascript
-  $("#container").chaos().organize({
-    selector: ".small",
-    beforeAnimation: function() {
-      $(".atom").addClass("hide");
-      $(".small").removeClass("hide");
-    }
-  });
+$("#container").chaos().organize({
+  selector: ".small",
+  beforeAnimation: function() {
+    $(".atom").addClass("hide");
+    $(".small").removeClass("hide");
+  }
+});
 ```
 
 ## Plugin initialization
@@ -101,22 +101,22 @@
 * **animateFallbackFunction(element, {top: X, left: Y})**: Overrides the fallback animation function
 
 ```javascript
-  $("#container").chaos({
-    elementSelector: ".atom",
-    effectClass: "effect",
-    padding: 10,
-    columnWidth: null,
-    beforeInitialization: function(element) {
-    },
-    beforeElementAnimation: function(element, opts) {
-    },
-    beforeAnimation: function() {
-    },
-    afterAnimation: function() {
-    },
-    animateFunction: null,
-    animateFallbackFunction: null
-  });
+$("#container").chaos({
+  elementSelector: ".atom",
+  effectClass: "effect",
+  padding: 10,
+  columnWidth: null,
+  beforeInitialization: function(element) {
+  },
+  beforeElementAnimation: function(element, opts) {
+  },
+  beforeAnimation: function() {
+  },
+  afterAnimation: function() {
+  },
+  animateFunction: null,
+  animateFallbackFunction: null
+});
 ```
 
 ## Methods
@@ -124,7 +124,7 @@
 ### Getting the instance after the initialization
 
 ```javascript
-  $("#container").chaos();
+$("#container").chaos();
 ```
 
 ### original
@@ -154,7 +154,7 @@ $("#container").chaos().organize({
 });
 ```
 
-Organize will invert the elements if order: "reverse" is used.
+Organize will invert the elements if **order: "reverse"** is used.
 Accepts a selector to restrict the manipulated elements. Accepts before and after callbacks.
 
 ## Maintainers
