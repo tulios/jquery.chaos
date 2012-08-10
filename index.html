@@ -9,7 +9,16 @@ layout: nil
 <div id="main_content_wrap" class="outer">
   <section id="main_content" class="inner">
 
-    {% include menu.html %}
+    <nav class="menu">
+      <a{% if page.title == demo.title %} class="current"{% endif %} href="{{ root_path }}">Home</a>
+      <p>Demos:</p>
+      <ul>
+        {% for demo in site.categories.demos reversed %}
+          <li{% if page.title == demo.title %} class="current"{% endif %}><a href=".{{ demo.url }}">{{ demo.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
     <div class="site-content">
       <script type="text/javascript" src="javascripts/basic.js"></script>
 
