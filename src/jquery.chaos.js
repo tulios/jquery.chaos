@@ -23,11 +23,13 @@
     elementSelector: ".atom",
     effectClass: "effect",
     padding: 10,
+    columnWidth: null,
     beforeInitialization: function(element) {},
     beforeElementAnimation: function(element, opts) {},
     beforeAnimation: function() {},
     afterAnimation: function() {},
-    animateFunction: null
+    animateFunction: null,
+    animateFallbackFunction: null
   };
 
   var Chaos = function (container, opts) {
@@ -61,25 +63,29 @@
       }
     },
 
+    updateOptions: function(opts) {
+      this.opts = $.extend({}, this.opts, opts);
+      this._calculateColumns(this._getElements());
+    },
+
     original: function(params) {
       var params = $.extend({}, params);
       var elements = params.selector ? $(params.selector) : this._getElements();
+
+      if (elements.length == 0) {
+        return;
+      }
+
       elements.addClass(this.opts.effectClass);
 
-      if (!this._fallback && elements.data("chaos").style !== "original") {
-
-        this._animate(function() {
-          for (var i = 0; i < elements.length; i++) {
-            var element = $(elements.get(i));
-            var props = element.data("chaos");
-            props.style = "original";
-            this._applyTransform(element, {left: props.originalLeft, top: props.originalTop});
-          }
-        });
-
-      } else if (this._fallback) {
-        elements.addClass("original");
-      }
+      this._animate(params, function() {
+        for (var i = 0; i < elements.length; i++) {
+          var element = $(elements.get(i));
+          var props = element.data("chaos");
+          this._applyTransform(element, {left: props.originalLeft, top: props.originalTop});
+        }
+        this.container.css("height", this.containerOriginalHeight + "px");
+      });
     },
 
     organize: function(params) {
@@ -88,40 +94,37 @@
 
       var reverse = params.order === "reverse";
       var elements = params.selector ? $(params.selector) : this._getElements();
-      var currentStyle = elements.data("chaos").style;
+
+      if (elements.length == 0) {
+        return;
+      }
 
       if (reverse) {
-        style = "organize-reverse";
         elements = $(elements.get().reverse());
       }
 
       elements.addClass(this.opts.effectClass);
 
-      if (!this._fallback && (currentStyle !== "organize" || currentStyle !== "organize-reverse")) {
-
-        this._animate(function() {
-          for (var i = 0; i < elements.length; i++) {
-            var element = $(elements.get(i));
-            element.data("chaos").style = style;
-            this._placeElement(element);
-          }
-          this._resetY();
-        });
-
-      } else if (this._fallback) {
-        elements.addClass(style);
-      }
+      this._animate(params, function() {
+        for (var i = 0; i < elements.length; i++) {
+          var element = $(elements.get(i));
+          this._applyTransform(element, this._calculatePosition(element));
+        }
+        this._adjustContainer();
+        this._resetY();
+      });
     },
 
     _init: function() {
-      if (Modernizr.csstransforms3d) {
-        var elements = this._getElements();
-        this._calculateColumns(elements);
-        this.setup(elements);
-
-      } else {
+      if (!Modernizr.csstransforms3d) {
         this._fallback = true;
       }
+
+      var elements = this._getElements();
+      this.containerOriginalHeight = this.container.height();
+      this.container.addClass(this.opts.effectClass);
+      this._calculateColumns(elements);
+      this.setup(elements);
     },
 
     _resetY: function() {
@@ -132,21 +135,29 @@
       }
     },
 
+    _adjustContainer: function() {
+      var height = Math.max.apply(Math, this.colYs) + this.opts.padding;
+      this.container.css("height", height + "px");
+    },
+
     _calculateColumns: function(elements) {
-      this.minColumnWidth = elements.outerWidth(true) + this.opts.padding;
+      this.minColumnWidth = (this.opts.columnWidth || elements.outerWidth(true)) + this.opts.padding;
       this.maxColumns = Math.floor(this.container.width() / this.minColumnWidth);
 
-      this.columns = Math.floor((this.container.width() + this.opts.padding) / this.minColumnWidth);
+      this.columns = Math.floor(this.container.width() / this.minColumnWidth);
       this.columns = Math.max(this.columns, 1);
       this._resetY();
     },
 
     // Borrowed and adapted from http://masonry.desandro.com/jquery.masonry.js layout logic
-    _placeElement: function(element) {
+    _calculatePosition: function(element) {
       var colSpan, groupCount, groupY, groupColY;
 
+      var elementWidth = element.outerWidth(true) + this.opts.padding;
+      var elementHeight = element.outerHeight(true) + this.opts.padding;
+
       //how many columns does this brick span
-      colSpan = Math.ceil((element.outerWidth(true) + this.opts.padding) / this.minColumnWidth);
+      colSpan = Math.ceil(elementWidth / this.minColumnWidth);
       colSpan = Math.min(colSpan, this.maxColumns);
 
       if (colSpan === 1) {
@@ -181,32 +192,55 @@
         }
       }
 
-      // position the brick
-      var position = {
+      // apply setHeight to necessary columns
+      var setHeight = minimumY + elementHeight;
+      var setSpan = this.columns + 1 - len;
+      for (var i = 0; i < setSpan; i++) {
+        this.colYs[shortCol + i] = setHeight;
+      }
+
+      return {
         top: minimumY + this.opts.padding,
         left: this.minColumnWidth * shortCol + this.opts.padding
       };
-
-      this._applyTransform(element, position);
-
-      // apply setHeight to necessary columns
-      var setHeight = minimumY + element.outerHeight(true) + this.opts.padding;
-      var setSpan = this.columns + 1 - len;
-      for ( var i=0; i < setSpan; i++ ) {
-        this.colYs[shortCol + i] = setHeight;
-      }
     },
 
-    _animate: function(callback) {
+    _animate: function(params, callback) {
       this.opts.beforeAnimation();
+      if (params.beforeAnimation) {
+        params.beforeAnimation();
+      }
+
       callback.apply(this);
+
       this.opts.afterAnimation();
+      if (params.afterAnimation) {
+        params.afterAnimation();
+      }
     },
 
     _applyTransform: function(element, opts) {
       this.opts.beforeElementAnimation(element, opts);
-      if (!this.opts.animateFunction) {
 
+      if (this._fallback) {
+        this._fallbackTransform(element, opts);
+
+      } else {
+        this._cssTransform(element, opts);
+      }
+    },
+
+    _fallbackTransform: function(element, opts) {
+      if (!this.opts.animateFallbackFunction) {
+        element.animate(opts);
+
+      } else {
+        this.opts.animateFallbackFunction(element, opts);
+      }
+    },
+
+    _cssTransform: function(element, opts) {
+      if (!this.opts.animateFunction) {
         $(element).css({
           "-webkit-transform": "translate3d(" + opts.left + "px, " + opts.top +"px, 0px)",
           "-moz-transform": "translate3d(" + opts.left + "px, " + opts.top +"px, 0px)",

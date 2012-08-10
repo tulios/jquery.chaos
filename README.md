@@ -1,6 +1,6 @@
 # jQuery Chaos
 
-  A dynamic mess organizer jquery plugin
+  A dynamic mess organizer plugin
        
   Examples:
   [http://tulios.github.com/jquery.chaos/](http://tulios.github.com/jquery.chaos/)
