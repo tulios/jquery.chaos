@@ -1,6 +1,23 @@
 #controls {
-  text-align: center;
-  margin: 20px 0;
+  width: 960px;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+#controls .option {
+  clear: both;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+#controls .option label,
+#controls .option .button-group {
+  float: left;
+}
+
+#controls .option label {
+  line-height: 26px;
+  margin-right: 15px;
 }
 
 #container {
@@ -19,51 +36,51 @@
 }
 
 .atom.small {
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
   z-index: 4;
 }
 
 .atom.medium {
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
+  width: 98px;
+  height: 98px;
+  line-height: 98px;
   z-index: 3;
 }
 
 .atom.big {
-  width: 200px;
-  height: 200px;
-  line-height: 200px;
+  width: 198px;
+  height: 198px;
+  line-height: 198px;
   z-index: 2;
 }
 
 .atom.huge {
-  width: 250px;
-  height: 250px;
-  line-height: 250px;
+  width: 248px;
+  height: 248px;
+  line-height: 248px;
   z-index: 1;
 }
 
 .atom.retangule-small {
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
+  width: 98px;
+  height: 48px;
+  line-height: 48px;
   z-index: 4;
 }
 
 .atom.retangule-medium {
-  width: 200px;
-  height: 100px;
-  line-height: 100px;
+  width: 198px;
+  height: 98px;
+  line-height: 98px;
   z-index: 3;
 }
 
 .atom.retangule-huge {
-  width: 250px;
-  height: 100px;
-  line-height: 100px;
+  width: 248px;
+  height: 98px;
+  line-height: 98px;
   z-index: 2;
 }
 
@@ -87,18 +104,22 @@
   background-color: #944D94;
 }
 
-.atom.effect {
-  -webkit-transition-property: -webkit-transform, opacity;
-  -moz-transition-property: -moz-transform, opacity;
-  -o-transition-property: -o-transform, opacity;
-  -ms-transition-property: -ms-transform, opacity;
-  transition-property: transform, opacity;
+#container.effect, .atom.effect {
+  -webkit-transition-property: -webkit-transform, opacity, height;
+  -moz-transition-property: -moz-transform, opacity, height;
+  -o-transition-property: -o-transform, opacity, height;
+  -ms-transition-property: -ms-transform, opacity, height;
+  transition-property: transform, opacity, height;
 
   -webkit-transition-duration: 0.8s;
   -moz-transition-duration: 0.8s;
   -o-transition-duration: 0.8s;
   -ms-transition-duration: 0.8s;
   transition-duration: 0.8s;
+}
+
+.atom.hide {
+  opacity: 0;
 }
 
 /* Fallback in case of old browser */

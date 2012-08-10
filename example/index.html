@@ -3,7 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <title>Example - jQuery Chaos</title>
+  <meta name="description" content="A dynamic mess organizer plugin">
+
+  <link rel="stylesheet" href="gh-buttons.css" type="text/css" media="screen" charset="utf-8">
   <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="../dependency/modernizr.transforms3d.js" charset="utf-8"></script>
   <script type="text/javascript" src="../src/jquery.chaos.js" charset="utf-8"></script>
@@ -12,9 +16,40 @@
 <body>
 
   <div id="controls">
-    <button id="mess">Mess</button>
-    <button id="organize">Organize</button>
-    <button id="organize-reverse">Organize Reverse</button>
+
+    <div class="option">
+      <label>Basic</label>
+      <div class="button-group">
+        <button id="mess" class="button active">Default</button>
+        <button id="organize" class="button">Organize</button>
+        <button id="organize-reverse" class="button">Organize Reverse</button>
+      </div>
+    </div>
+
+    <div class="option button-container filter">
+      <label>Filter</label>
+      <div class="button-group">
+        <button id="blue" class="button">Blue</button>
+        <button id="red" class="button">Red</button>
+        <button id="green" class="button">Green</button>
+        <button id="purple" class="button">Purple</button>
+        <button id="orange" class="button">Orange</button>
+      </div>
+
+      <div class="button-group">
+        <button id="small" class="button">Small</button>
+        <button id="medium" class="button">Medium</button>
+        <button id="big" class="button">Big</button>
+        <button id="huge" class="button">Huge</button>
+      </div>
+
+      <div class="button-group">
+        <button id="retangule-small" class="button">Retangule Small</button>
+        <button id="retangule-medium" class="button">Retangule Medium</button>
+        <button id="retangule-big" class="button">Retangule Huge</button>
+      </div>
+    </div>
+
   </div>
 
   <div id="container">
