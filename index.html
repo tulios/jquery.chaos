@@ -4,9 +4,10 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Jquery.chaos : A dynamic mess organizer jquery plugin" />
+    <meta name="description" content="Jquery.chaos : A dynamic mess organizer plugin" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/gh-buttons.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -25,7 +26,7 @@
           <a id="forkme_banner" href="https://github.com/tulios/jquery.chaos">View on GitHub</a>
 
           <h1 id="project_title">Jquery.chaos</h1>
-          <h2 id="project_tagline">A dynamic mess organizer jquery plugin</h2>
+          <h2 id="project_tagline">A dynamic mess organizer plugin</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/tulios/jquery.chaos/zipball/master">
@@ -47,27 +48,58 @@
         <h2>Demo</h2>
 
         <div id="controls">
-          <button id="mess">Default</button>
-          <button id="organize">Organize</button>
-          <button id="organize-reverse">Organize Reverse</button>
-        </div>
 
-        <div id="container">
+            <div class="option">
+              <label>Basic</label>
+              <div class="button-group">
+                <button id="mess" class="button active">Default</button>
+                <button id="organize" class="button">Organize</button>
+                <button id="organize-reverse" class="button">Organize Reverse</button>
+              </div>
+            </div>
 
-          <div class="atom small blue" style="left: 10px; top: 30px;">Text 1</div>
-          <div class="atom small red" style="left: 640px; top: 205px;">Text 2</div>
-          <div class="atom medium green" style="left: 10px; top: 230px;">Text 3</div>
-          <div class="atom medium orange" style="left: 400px; top: 50px;">Text 4</div>
-          <div class="atom big purple" style="left: 120px; top: 90px;">Text 5</div>
-          <div class="atom big blue" style="left: 330px; top: 200px;">Text 6</div>
-          <div class="atom retangule-small red" style="left: 120px; top: 20px;">Text 7</div>
-          <div class="atom retangule-small green" style="left: 130px; top: 400px;">Text 8</div>
-          <div class="atom retangule-medium orange" style="left: 720px; top: 260px;">Text 9</div>
-          <div class="atom retangule-medium purple" style="left: 630px; top: 390px;">Text 10</div>
-          <div class="atom huge green" style="left: 620px; top: 60px;">Text 11</div>
-          <div class="atom retangule-huge red" style="left: 280px; top: 390px;">Text 12</div>
+            <div class="option button-container filter">
+              <label>Filter</label>
+              <div class="button-group">
+                <button id="blue" class="button">Blue</button>
+                <button id="red" class="button">Red</button>
+                <button id="green" class="button">Green</button>
+                <button id="purple" class="button">Purple</button>
+                <button id="orange" class="button">Orange</button>
+              </div>
 
-        </div>
+              <div class="button-group">
+                <button id="small" class="button">Small</button>
+                <button id="medium" class="button">Medium</button>
+                <button id="big" class="button">Big</button>
+                <button id="huge" class="button">Huge</button>
+              </div>
+
+              <div class="button-group">
+                <button id="retangule-small" class="button">Retangule Small</button>
+                <button id="retangule-medium" class="button">Retangule Medium</button>
+                <button id="retangule-huge" class="button">Retangule Huge</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div id="container">
+
+            <div class="atom small blue" style="left: 10px; top: 30px;">Text 1</div>
+            <div class="atom small red" style="left: 640px; top: 205px;">Text 2</div>
+            <div class="atom medium green" style="left: 10px; top: 230px;">Text 3</div>
+            <div class="atom medium orange" style="left: 400px; top: 50px;">Text 4</div>
+            <div class="atom big purple" style="left: 120px; top: 90px;">Text 5</div>
+            <div class="atom big blue" style="left: 330px; top: 200px;">Text 6</div>
+            <div class="atom retangule-small red" style="left: 120px; top: 20px;">Text 7</div>
+            <div class="atom retangule-small green" style="left: 130px; top: 400px;">Text 8</div>
+            <div class="atom retangule-medium orange" style="left: 720px; top: 260px;">Text 9</div>
+            <div class="atom retangule-medium purple" style="left: 630px; top: 390px;">Text 10</div>
+            <div class="atom huge green" style="left: 620px; top: 60px;">Text 11</div>
+            <div class="atom retangule-huge red" style="left: 280px; top: 390px;">Text 12</div>
+
+          </div>
 
       </section>
     </div>
