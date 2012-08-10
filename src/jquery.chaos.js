@@ -144,12 +144,20 @@
     },
 
     _calculateColumns: function(elements) {
-      this.minColumnWidth = (this.opts.columnWidth || elements.outerWidth(true)) + this.opts.padding;
+      this.minColumnWidth = (this.opts.columnWidth || this._calculateMinWidth(elements)) + this.opts.padding;
       this.maxColumns = Math.floor(this.container.width() / this.minColumnWidth);
 
       this.columns = Math.floor(this.container.width() / this.minColumnWidth);
       this.columns = Math.max(this.columns, 1);
       this._resetY();
+    },
+
+    _calculateMinWidth: function(elements) {
+      var widths = [];
+      for (var i = 0; i < elements.length; i++) {
+        widths.push($(elements.get(i)).outerWidth(true));
+      }
+      return Math.min.apply(Math, widths);
     },
 
     // Borrowed and adapted from http://masonry.desandro.com/jquery.masonry.js layout logic
