@@ -121,9 +121,3 @@
 .atom.hide {
   opacity: 0;
 }
-
-/* Fallback in case of old browser */
-.atom.organize {
-  position: static !important;
-  float: left !important;
-}
