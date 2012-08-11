@@ -133,7 +133,8 @@ Animates the elements to the original position. Accepts a selector to restrict t
 $("#container").chaos().original({
   selector: "",
   beforeAnimation: function() {},
-  afterAnimation: function() {}
+  afterAnimation: function() {},
+  afterElementAnimation: function(element){}
 });
 ```
 
@@ -147,7 +148,8 @@ $("#container").chaos().organize({
   order: ""
   selector: "",
   beforeAnimation: function() {},
-  afterAnimation: function() {}
+  afterAnimation: function() {},
+  afterElementAnimation: function(element){}
 });
 ```
 

@@ -61,6 +61,9 @@
         this._applyTransform(element, {left: props.originalLeft, top: props.originalTop});
         element.css({left: 0, top: 0});
       }
+
+      this._calculateColumns(this._getElements());
+      return this;
     },
 
     updateOptions: function(opts) {
@@ -74,6 +77,8 @@
       elementsUniverse.addClass(this.opts.effectClass);
 
       var elements = params.selector ? $(params.selector, this.container) : elementsUniverse;
+      var callbackObj = {afterElementAnimation: params.afterElementAnimation};
+
       if (elements.length == 0) {
         return;
       }
@@ -82,7 +87,7 @@
         for (var i = 0; i < elements.length; i++) {
           var element = $(elements.get(i));
           var props = element.data("chaos");
-          this._applyTransform(element, {left: props.originalLeft, top: props.originalTop});
+          this._applyTransform(element, $.extend({left: props.originalLeft, top: props.originalTop}, callbackObj));
         }
         this.container.css("height", this.containerOriginalHeight + "px");
       });
@@ -97,6 +102,7 @@
       elementsUniverse.addClass(this.opts.effectClass);
 
       var elements = params.selector ? $(params.selector, this.container) : elementsUniverse;
+      var callbackObj = {afterElementAnimation: params.afterElementAnimation};
 
       if (elements.length == 0) {
         return;
@@ -111,7 +117,7 @@
       this._animate(params, function() {
         for (var i = 0; i < elements.length; i++) {
           var element = $(elements.get(i));
-          this._applyTransform(element, this._calculatePosition(element));
+          this._applyTransform(element, $.extend(this._calculatePosition(element), callbackObj));
         }
         this._adjustContainer();
         this._resetY();
@@ -126,7 +132,6 @@
       var elements = this._getElements();
       this.containerOriginalHeight = this.container.height();
       this.container.addClass(this.opts.effectClass);
-      this._calculateColumns(elements);
       this.setup(elements);
     },
 
@@ -243,7 +248,11 @@
 
     _fallbackTransform: function(element, opts) {
       if (!this.opts.animateFallbackFunction) {
-        element.animate(opts);
+        element.animate(opts, function() {
+          if (opts.afterElementAnimation) {
+            opts.afterElementAnimation(element);
+          }
+        });
 
       } else {
         this.opts.animateFallbackFunction(element, opts);
@@ -252,6 +261,14 @@
 
     _cssTransform: function(element, opts) {
       if (!this.opts.animateFunction) {
+
+        $(element).on("webkitTransitionEnd mozTransitionEnd oTransitionEnd msTransitionEnd transitionend", function(){
+          if (opts.afterElementAnimation) {
+            opts.afterElementAnimation(element);
+            $(element).off("webkitTransitionEnd mozTransitionEnd oTransitionEnd msTransitionEnd transitionend");
+          }
+        });
+
         $(element).css({
           "-webkit-transform": "translate3d(" + opts.left + "px, " + opts.top +"px, 0px)",
           "-moz-transform": "translate3d(" + opts.left + "px, " + opts.top +"px, 0px)",
@@ -270,7 +287,7 @@
     },
 
     _pxToInt: function(px) {
-      return parseInt(px.replace(/px$/, ""), 10);
+      return parseInt(px.replace(/px$/, ""), 10) || 0;
     }
 
   };
