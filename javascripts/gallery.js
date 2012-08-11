@@ -17,12 +17,20 @@ $(function() {
              this.photo.server + '/' + this.photo.id + '_' + this.photo.secret + "_m.jpg";
     },
 
-    cssClass: function() {
+    cssWidth: function() {
       return this.width_m == 240 ? "width-240" : "height-240";
     },
 
     cssMonth: function() {
       return "month-" + this.datetaken.toString("MM");
+    },
+
+    cssClasses: function() {
+      return [this.cssWidth(), this.cssMonth()].join(" ");
+    },
+
+    style: function() {
+      return "width: " + this.width_m+"px; height: "+ this.height_m+"px;";
     }
   }
 
@@ -61,7 +69,7 @@ $(function() {
       $.each(data.photos.photo, function(index, photo) {
         var fPhoto = new FlickrPhoto(photo);
 
-        var atom = $("<div class='atom hide "+fPhoto.cssClass()+" "+fPhoto.cssMonth()+"' style='width: "+fPhoto.width_m+"px; height: "+fPhoto.height_m+"px;'></div>");
+        var atom = $("<div class='atom hide "+fPhoto.cssClasses()+"' style='"+fPhoto.style()+"'></div>");
         var img = new Image();
         img.width = fPhoto.width_m;
         img.height = fPhoto.height_m;
