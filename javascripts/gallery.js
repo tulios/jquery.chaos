@@ -58,7 +58,6 @@ $(function() {
     dataType: 'jsonp',
     jsonp: 'jsoncallback',
     success: function(data) {
-      console.log(data);
       $.each(data.photos.photo, function(index, photo) {
         var fPhoto = new FlickrPhoto(photo);
 
