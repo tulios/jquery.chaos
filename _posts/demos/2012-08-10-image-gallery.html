@@ -1,0 +1,58 @@
+---
+layout: main
+title: Image Gallery
+category: demos
+---
+
+<script type="text/javascript" src="../javascripts/date.js"></script>
+<script type="text/javascript" src="../javascripts/basic.js"></script>
+<script type="text/javascript" src="../javascripts/gallery.js"></script>
+<style type="text/css" media="screen">
+  .atom img {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  .atom {
+    border: none;
+  }
+</style>
+<h2>Image Gallery</h2>
+
+<div id="controls">
+
+  <div class="option">
+    <label>Basic</label>
+    <div class="button-group">
+      <button id="organize" class="button active">All</button>
+      <button id="organize-reverse" class="button">Reverse</button>
+    </div>
+  </div>
+
+  <div class="option button-container filter">
+    <label>Filter</label>
+    <div class="button-group">
+      <button id="width-240" class="button">Width 240</button>
+      <button id="height-240" class="button">Height 240</button>
+    </div>
+
+    <div class="button-group months">
+      <button id="month-01" class="button" style="display: none;">January</button>
+      <button id="month-02" class="button" style="display: none;">February</button>
+      <button id="month-03" class="button" style="display: none;">March</button>
+      <button id="month-04" class="button" style="display: none;">April</button>
+      <button id="month-05" class="button" style="display: none;">May</button>
+      <button id="month-06" class="button" style="display: none;">June</button>
+      <button id="month-07" class="button" style="display: none;">July</button>
+      <button id="month-08" class="button" style="display: none;">August</button>
+      <button id="month-09" class="button" style="display: none;">September</button>
+      <button id="month-10" class="button" style="display: none;">October</button>
+      <button id="month-11" class="button" style="display: none;">November</button>
+      <button id="month-12" class="button" style="display: none;">December</button>
+    </div>
+  </div>
+</div>
+
+<div id="container">
+</div>
