@@ -43,44 +43,44 @@
 }
 
 .atom.medium {
-  width: 98px;
-  height: 98px;
-  line-height: 98px;
+  width: 103px;
+  height: 103px;
+  line-height: 103px;
   z-index: 3;
 }
 
 .atom.big {
-  width: 198px;
-  height: 198px;
-  line-height: 198px;
+  width: 213px;
+  height: 213px;
+  line-height: 213px;
   z-index: 2;
 }
 
 .atom.huge {
-  width: 248px;
+  width: 268px;
   height: 248px;
   line-height: 248px;
   z-index: 1;
 }
 
 .atom.retangule-small {
-  width: 98px;
+  width: 103px;
   height: 48px;
   line-height: 48px;
   z-index: 4;
 }
 
 .atom.retangule-medium {
-  width: 198px;
-  height: 98px;
-  line-height: 98px;
+  width: 213px;
+  height: 103px;
+  line-height: 103px;
   z-index: 3;
 }
 
 .atom.retangule-huge {
-  width: 248px;
-  height: 98px;
-  line-height: 98px;
+  width: 268px;
+  height: 103px;
+  line-height: 103px;
   z-index: 2;
 }
 
